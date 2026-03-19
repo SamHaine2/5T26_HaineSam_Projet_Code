@@ -1,0 +1,14 @@
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.exe
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.deps.json
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.runtimeconfig.json
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.dll
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.pdb
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.GeneratedMSBuildEditorConfig.editorconfig
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.AssemblyInfoInputs.cache
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.AssemblyInfo.cs
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.csproj.CoreCompileInputs.cache
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.dll
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\refint\ProjetSamHaine2026.dll
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.pdb
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.genruntimeconfig.cache
+H:\Informatique5TTI\C#\Projet\ProjetSamHaine2026\obj\Debug\net10.0\ref\ProjetSamHaine2026.dll

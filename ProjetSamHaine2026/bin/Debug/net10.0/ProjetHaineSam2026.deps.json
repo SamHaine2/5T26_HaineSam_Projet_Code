@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "ProjetHaineSam2026/1.0.0": {
+        "runtime": {
+          "ProjetHaineSam2026.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProjetHaineSam2026/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

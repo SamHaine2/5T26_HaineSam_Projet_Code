@@ -11,23 +11,22 @@
                 LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
             } while (taille < 1 || taille > 3);
             CreationDeLaMatrice(taille, out int[,] t);
+            InitialiserMatrice(taille, t);
 
-            for (int i = 0; i < 10; i++)
+            do
             {
-                CelluleMouvement(0, 0, taille, t);
-                afficherMatrice(taille, t);
-                if (i == 10)
+                for (int i = 0; i < 10; i++)
                 {
-                    Console.WriteLine("veut tu continuer");
-                    continuer = Console.ReadLine();
-                    if (continuer == "oui")
-                    {
-                        i = 0;
-                    }
+                    afficherMatrice(taille, t);
+                    CelluleMouvement(taille, t);
                 }
-            }
 
+                Console.WriteLine("Veux-tu continuer ? (oui/non)");
+                continuer = Console.ReadLine();
+
+            } while (continuer == "oui");
         }
+
         static void LireEntier(string question, out int n)
         {
             string infoUser;
@@ -52,57 +51,95 @@
                 t = new int[50, 50];
             }
         }
+
+
+        static void InitialiserMatrice(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+
+            t[dimension / 2, dimension / 2 - 1] = 1;
+            t[dimension / 2, dimension / 2] = 1;
+            t[dimension / 2, dimension / 2 + 1] = 1;
+        }
+
+
         static void afficherMatrice(int taille, int[,] t)
         {
-            if (taille == 1)
-            {
-                for (int i = 0; i < taille; i++)
-                {
-                    for (int j = 0; j < taille; j++)
-                    {
-                        Console.Write(t[i, j] + " ");
-                        if (j == 10)
-                        {
-                            Console.WriteLine("\n");
-                        }
-                    }
-                    Console.WriteLine();
-                }
-            }
+            int dimension = t.GetLength(0);
 
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    Console.Write(t[i, j] == 1 ? " " : ".");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
         }
-        static void CelluleMouvement(int tTotal, int tTaille, int taille, int[,] t)
+
+        static void CelluleMouvement(int taille, int[,] t)
         {
-            if (taille == 1)
-            {
-                tTaille = 10;
-            }
-            else if (taille == 2)
-            {
-                tTaille = 25;
-            }
-            else
-            {
-                tTaille = 50;
-            }
+            int dimension = t.GetLength(0);
+            int[,] nouvelle = new int[dimension, dimension];
 
-            for (int nbr2 = 0; nbr2 < tTaille; nbr2++)
+            for (int i = 0; i < dimension; i++)
             {
-                for (int nbr1 = 0; nbr1 < tTaille; nbr1++)
+                for (int j = 0; j < dimension; j++)
                 {
-                    tTotal = ((nbr1 > 0) ? t[nbr1 - 1, nbr2] : 0) + ((nbr1 + 1 < t.GetLength(0)) ? t[nbr1 + 1, nbr2] : 0) + ((nbr1 > 0 && nbr2 > 0) ? t[nbr1 - 1, nbr2 - 1] : 0) + ((nbr1 + 1 < t.GetLength(0) && nbr2 > 0) ? t[nbr1 + 1, nbr2 - 1] : 0) + ((nbr2 > 0) ? t[nbr1, nbr2 - 1] : 0) + ((nbr2 + 1 < t.GetLength(1)) ? t[nbr1, nbr2 + 1] : 0) + ((nbr1 > 0 && nbr2 + 1 < t.GetLength(1)) ? t[nbr1 - 1, nbr2 + 1] : 0) + ((nbr1 + 1 < t.GetLength(0) && nbr2 + 1 < t.GetLength(1)) ? t[nbr1 + 1, nbr2 + 1] : 0);
-                    if (tTotal == 3)
-                    {
-                        t[nbr1, nbr2] = 1;
-                    } else if (tTotal == 2)
-                    {
+                    int voisins = CompterVoisins(i, j, t);
 
-                    }else
+                    if (t[i, j] == 1)
                     {
-                        t[nbr1, nbr2] = 0;
+                        if (voisins == 2 || voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
+                    }
+                    else
+                    {
+                        if (voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
                     }
                 }
             }
+
+            // Copier la nouvelle matrice dans l'ancienne
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    t[i, j] = nouvelle[i, j];
+                }
+            }
+        }
+
+        static int CompterVoisins(int x, int y, int[,] t)
+        {
+            int total = 0;
+            int dimension = t.GetLength(0);
+
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                for (int dy = -1; dy <= 1; dy++)
+                {
+                    if (dx == 0 && dy == 0)
+                        continue;
+
+                    int nx = x + dx;
+                    int ny = y + dy;
+
+                    if (nx >= 0 && nx < dimension && ny >= 0 && ny < dimension)
+                    {
+                        total += t[nx, ny];
+                    }
+                }
+            }
+
+            return total;
         }
     }
+
 }

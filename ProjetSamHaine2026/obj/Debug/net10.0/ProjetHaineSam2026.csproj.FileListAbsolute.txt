@@ -1,0 +1,14 @@
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\bin\Debug\net10.0\ProjetHaineSam2026.exe
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\bin\Debug\net10.0\ProjetHaineSam2026.deps.json
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\bin\Debug\net10.0\ProjetHaineSam2026.runtimeconfig.json
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\bin\Debug\net10.0\ProjetHaineSam2026.dll
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\bin\Debug\net10.0\ProjetHaineSam2026.pdb
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.AssemblyInfoInputs.cache
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.AssemblyInfo.cs
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.csproj.CoreCompileInputs.cache
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.dll
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\refint\ProjetHaineSam2026.dll
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.pdb
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ProjetHaineSam2026.genruntimeconfig.cache
+C:\Users\123\Documents\ECOLE\C#\ProjetHaineSam2026\obj\Debug\net10.0\ref\ProjetHaineSam2026.dll

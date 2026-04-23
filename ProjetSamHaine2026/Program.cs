@@ -11,7 +11,6 @@
                 LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
             } while (taille < 1 || taille > 3);
             CreationDeLaMatrice(taille, out int[,] t);
-
             InitialiserMatrice(taille, t);
 
             do
@@ -56,13 +55,6 @@
 
         static void InitialiserMatrice(int taille, int[,] t)
         {
-            string continuer;
-            do
-            {
-
-                Console.WriteLine("Voulez vous placer une autre cellule ? (oui/non)");
-                continuer = Console.ReadLine();
-            } while (continuer == "non");
             int dimension = t.GetLength(0);
 
             t[dimension / 2, dimension / 2 - 1] = 1;
@@ -77,9 +69,46 @@
 
             for (int i = 0; i < dimension; i++)
             {
+                Console.Write(i + 1);
+            }
+
+            for (int i = 0; i < dimension; i++)
+            {
                 for (int j = 0; j < dimension; j++)
                 {
-                    Console.Write(t[i, j] == 1 ? "■" : "o");
+                    if (j == 0 && i != 0)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■ ");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "   ");
+                        }
+                    }
+                    else if (j == 0 && i != 0 && i + 1 >= 10)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "  ");
+                        }
+                    }
+                    else
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write("■");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
                 }
                 Console.WriteLine();
             }
@@ -114,6 +143,7 @@
                 }
             }
 
+            // Copier la nouvelle matrice dans l'ancienne
             for (int i = 0; i < dimension; i++)
             {
                 for (int j = 0; j < dimension; j++)
@@ -148,4 +178,5 @@
             return total;
         }
     }
+
 }

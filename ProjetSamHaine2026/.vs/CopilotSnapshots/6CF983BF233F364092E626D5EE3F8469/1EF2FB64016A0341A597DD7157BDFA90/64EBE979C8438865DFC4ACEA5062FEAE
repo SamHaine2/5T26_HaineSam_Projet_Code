@@ -1,0 +1,217 @@
+﻿namespace ProjetSamHaine2026
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int taille, iniCellule;
+            string continuer, reco;
+            do
+            {
+                LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
+            } while (taille < 1 || taille > 3);
+            CreationDeLaMatrice(taille, out int[,] t);
+            do
+            {
+                LireEntier("Combien de cellules initiales voulez vous ?", out iniCellule);
+                InitialiserMatrice(taille, t, iniCellule);
+
+                Console.WriteLine("Veux-tu recommencer ? (o/n)");
+                reco = Console.ReadLine();
+
+            } while (reco == "n");
+
+            do
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    afficherMatrice(taille, t);
+                    CelluleMouvement(taille, t);
+                }
+
+                Console.WriteLine("Veux-tu continuer ? (o/n)");
+                continuer = Console.ReadLine();
+
+            } while (continuer == "o");
+        }
+
+        static void LireEntier(string question, out int n)
+        {
+            string infoUser;
+            do
+            {
+                Console.WriteLine(question);
+                infoUser = Console.ReadLine();
+            } while (!int.TryParse(infoUser, out n));
+        }
+        static void CreationDeLaMatrice(int taille, out int[,] t)
+        {
+            if (taille == 1)
+            {
+                t = new int[10, 10];
+            }
+            else if (taille == 2)
+            {
+                t = new int[25, 25];
+            }
+            else
+            {
+                t = new int[50, 50];
+            }
+        }
+
+
+        static void InitialiserMatrice(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+
+            Console.WriteLine($"Initialisation : entrez des coordonnées 'ligne colonne' entre 1 et {dimension}. Laissez vide pour terminer.");
+            while (true)
+            {
+                Console.Write("Coordonnées (ex: 3 4) : ");
+                string line = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(line))
+                    break;
+
+                var parts = line.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (parts.Length < 2)
+                {
+                    Console.WriteLine("Entrée invalide. Utilisez le format: ligne colonne");
+                    continue;
+                }
+
+                if (!int.TryParse(parts[0], out int ligne) || !int.TryParse(parts[1], out int colonne))
+                {
+                    Console.WriteLine("Entrée invalide. Nombres attendus.");
+                    continue;
+                }
+
+                ligne--; colonne--;
+                if (ligne < 0 || ligne >= dimension || colonne < 0 || colonne >= dimension)
+                {
+                    Console.WriteLine("Coordonnées hors limites.");
+                    continue;
+                }
+
+                t[ligne, colonne] = 1;
+            }
+        }
+
+
+        static void afficherMatrice(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+
+            for (int i = 0; i < dimension; i++)
+            {
+                Console.Write(i + 1);
+            }
+
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    if (j == 0 && i != 0)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■ ");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "   ");
+                        }
+                    }
+                    else if (j == 0 && i != 0 && i + 1 >= 10)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "  ");
+                        }
+                    }
+                    else
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write("■");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+
+        static void CelluleMouvement(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+            int[,] nouvelle = new int[dimension, dimension];
+
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    int voisins = CompterVoisins(i, j, t);
+
+                    if (t[i, j] == 1)
+                    {
+                        if (voisins == 2 || voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
+                    }
+                    else
+                    {
+                        if (voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
+                    }
+                }
+            }
+
+            // Copier la nouvelle matrice dans l'ancienne
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    t[i, j] = nouvelle[i, j];
+                }
+            }
+        }
+
+        static int CompterVoisins(int x, int y, int[,] t)
+        {
+            int total = 0;
+            int dimension = t.GetLength(0);
+
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                for (int dy = -1; dy <= 1; dy++)
+                {
+                    if (dx == 0 && dy == 0)
+                        continue;
+
+                    int nx = x + dx;
+                    int ny = y + dy;
+
+                    if (nx >= 0 && nx < dimension && ny >= 0 && ny < dimension)
+                    {
+                        total += t[nx, ny];
+                    }
+                }
+            }
+
+            return total;
+        }
+    }
+
+}

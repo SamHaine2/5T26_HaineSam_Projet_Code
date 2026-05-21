@@ -4,14 +4,26 @@
     {
         static void Main(string[] args)
         {
-            int taille;
-            string continuer;
+            int taille, iniCellule, coord1, coord2;
+            string continuer, reco;
             do
             {
                 LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
             } while (taille < 1 || taille > 3);
             CreationDeLaMatrice(taille, out int[,] t);
-            InitialiserMatrice(taille, t);
+            do
+            {
+                LireEntier("Combien de cellules initiales voulez vous ?", out iniCellule);
+                Console.Clear();
+                LireEntier("Entrez la ligne (x) de votre cellule (..;):", out coord1);
+                Console.Clear();
+                LireEntier("Entrez la colonne (y) de votre cellule (" + coord1 + ";..) :", out coord2);
+                InitialiserMatrice(taille, t, iniCellule, coord1, coord2);
+
+                Console.WriteLine("Veux-tu recommencer ? (o/n)");
+                reco = Console.ReadLine();
+
+            } while (reco == "o");
 
             do
             {
@@ -21,10 +33,10 @@
                     CelluleMouvement(taille, t);
                 }
 
-                Console.WriteLine("Veux-tu continuer ? (oui/non)");
+                Console.WriteLine("Veux-tu continuer ? (o/n)");
                 continuer = Console.ReadLine();
 
-            } while (continuer == "oui");
+            } while (continuer == "o");
         }
 
         static void LireEntier(string question, out int n)
@@ -53,13 +65,17 @@
         }
 
 
-        static void InitialiserMatrice(int taille, int[,] t)
+        static void InitialiserMatrice(int taille, int[,] t, int nombreInit, int coord1, int coord2)
         {
             int dimension = t.GetLength(0);
+            // Utiliser directement les coordonnées fournies (coord1 = ligne x, coord2 = colonne y)
+            if (coord1 < 1 || coord1 > dimension || coord2 < 1 || coord2 > dimension)
+            {
+                Console.WriteLine("Coordonnées hors limites, aucune cellule initiale n'est définie.");
+                return;
+            }
 
-            t[dimension / 2, dimension / 2 - 1] = 1;
-            t[dimension / 2, dimension / 2] = 1;
-            t[dimension / 2, dimension / 2 + 1] = 1;
+            t[coord1 - 1, coord2 - 1] = 1;
         }
 
 

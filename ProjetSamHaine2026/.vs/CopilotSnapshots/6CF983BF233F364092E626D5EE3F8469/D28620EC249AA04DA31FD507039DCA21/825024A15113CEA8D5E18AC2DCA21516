@@ -1,0 +1,248 @@
+﻿using System.ComponentModel.Design;
+
+namespace ProjetSamHaine2026
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int taille, coord1x, coord1y, coord2x, coord2y, coord3x, coord3y, coord4x, coord4y,coord5x, coord5y;
+            string continuer, reco;
+            taille = 0; coord1x = 0; coord1y = 0; coord2x = 0; coord2y = 0; coord3x = 0; coord3y = 0; coord4x = 0; coord4y = 0; coord5x = 0; coord5y = 0;
+
+            do
+            {
+                LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
+            } while (taille < 1 || taille > 3);
+            CreationDeLaMatrice(taille, out int[,] t);
+            do
+            {
+                Console.Clear();
+                int dimension = t.GetLength(0);
+                // Lire jusqu'à 5 paires de coordonnées. Utilisez 99 pour ignorer une cellule.
+                int[] xs = new int[5];
+                int[] ys = new int[5];
+                for (int idx = 0; idx < 5; idx++)
+                {
+                    LireCoordAvecSentinel($"Entrez la ligne (x) de votre cellule {idx + 1} (1..{dimension}, 99 pour ignorer) :", 1, dimension, out xs[idx]);
+                    if (xs[idx] == 99)
+                    {
+                        ys[idx] = 99;
+                        continue;
+                    }
+                    Console.Clear();
+                    LireCoordAvecSentinel($"Entrez la colonne (y) de votre cellule {idx + 1} (1..{dimension}, 99 pour ignorer) :", 1, dimension, out ys[idx]);
+                    if (ys[idx] == 99)
+                    {
+                        xs[idx] = 99; // marquer comme ignorée si colonne ignorée
+                    }
+                    Console.Clear();
+                }
+
+                // assigner aux variables existantes
+                coord1x = xs[0]; coord1y = ys[0];
+                coord2x = xs[1]; coord2y = ys[1];
+                coord3x = xs[2]; coord3y = ys[2];
+                coord4x = xs[3]; coord4y = ys[3];
+                coord5x = xs[4]; coord5y = ys[4];
+
+                InitialiserMatrice(taille, t, coord1x, coord1y, coord2x, coord2y, coord3x, coord3y, coord4x, coord4y, coord5x, coord5y);
+
+                Console.WriteLine("Veux-tu recommencer ? (o/n)");
+                reco = Console.ReadLine();
+
+            } while (reco == "o");
+
+            do
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    afficherMatrice(taille, t);
+                    CelluleMouvement(taille, t);
+                }
+
+                Console.WriteLine("Veux-tu continuer ? (o/n)");
+                continuer = Console.ReadLine();
+
+            } while (continuer == "o");
+        }
+
+        static void LireEntier(string question, out int n)
+        {
+            string infoUser;
+            do
+            {
+                Console.WriteLine(question);
+                infoUser = Console.ReadLine();
+            } while (!int.TryParse(infoUser, out n));
+        }
+        static void CreationDeLaMatrice(int taille, out int[,] t)
+        {
+            if (taille == 1)
+            {
+                t = new int[10, 10];
+            }
+            else if (taille == 2)
+            {
+                t = new int[25, 25];
+            }
+            else
+            {
+                t = new int[50, 50];
+            }
+        }
+
+
+        static void InitialiserMatrice(int taille, int[,] t,int coord1x,int coord1y, int coord2x,int coord2y,int coord3x,int coord3y,int coord4x,int coord4y,int coord5x,int coord5y)
+        {
+            int dimension = t.GetLength(0);
+
+            // Réinitialiser la matrice à 0
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    t[i, j] = 0;
+                }
+            }
+
+            if (coord1x != 999 && coord1y != 999)
+            {
+                t[coord1x , coord1y ] = 1;
+            }
+            if (coord2x != 999 && coord1y != 999)
+            {
+                t[coord2x, coord2y ] = 1;
+            }
+            if (coord3x != 999 && coord3y != 999)
+            {
+                t[coord3x, coord3y] = 1;
+            }
+            if (coord4x != 999 && coord4y != 999)
+            {
+                t[coord4x, coord4y] = 1;
+            }
+            if (coord5x != 999 && coord5y != 999)
+            {
+                t[coord5x, coord5y] = 1;
+            }
+        }
+        
+
+        static void afficherMatrice(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+
+            for (int i = 0; i < dimension; i++)
+            {
+                Console.Write(i + 1);
+            }
+
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    if (j == 0 && i != 0)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■ ");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "   ");
+                        }
+                    }
+                    else if (j == 0 && i != 0 && i + 1 >= 10)
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write((i + 1) + " ■");
+                        }
+                        else
+                        {
+                            Console.Write((i + 1) + "  ");
+                        }
+                    }
+                    else
+                    {
+                        if (t[i, j] == 1)
+                        {
+                            Console.Write("■");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+
+        static void CelluleMouvement(int taille, int[,] t)
+        {
+            int dimension = t.GetLength(0);
+            int[,] nouvelle = new int[dimension, dimension];
+
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    int voisins = CompterVoisins(i, j, t);
+
+                    if (t[i, j] == 1)
+                    {
+                        if (voisins == 2 || voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
+                    }
+                    else
+                    {
+                        if (voisins == 3)
+                            nouvelle[i, j] = 1;
+                        else
+                            nouvelle[i, j] = 0;
+                    }
+                }
+            }
+
+            // Copier la nouvelle matrice dans l'ancienne
+            for (int i = 0; i < dimension; i++)
+            {
+                for (int j = 0; j < dimension; j++)
+                {
+                    t[i, j] = nouvelle[i, j];
+                }
+            }
+        }
+
+        static int CompterVoisins(int x, int y, int[,] t)
+        {
+            int total = 0;
+            int dimension = t.GetLength(0);
+
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                for (int dy = -1; dy <= 1; dy++)
+                {
+                    if (dx == 0 && dy == 0)
+                        continue;
+
+                    int nx = x + dx;
+                    int ny = y + dy;
+
+                    if (nx >= 0 && nx < dimension && ny >= 0 && ny < dimension)
+                    {
+                        total += t[nx, ny];
+                    }
+                }
+            }
+
+            return total;
+        }
+    }
+
+}

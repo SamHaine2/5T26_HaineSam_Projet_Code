@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Informatique5TTI\\C#\\Projet\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj": {}
+    "H:\\Informatique5TTI\\5T26_HaineSam_Projet_Code\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj": {}
   },
   "projects": {
-    "H:\\Informatique5TTI\\C#\\Projet\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj": {
+    "H:\\Informatique5TTI\\5T26_HaineSam_Projet_Code\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Informatique5TTI\\C#\\Projet\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj",
+        "projectUniqueName": "H:\\Informatique5TTI\\5T26_HaineSam_Projet_Code\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj",
         "projectName": "ProjetSamHaine2026",
-        "projectPath": "H:\\Informatique5TTI\\C#\\Projet\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj",
+        "projectPath": "H:\\Informatique5TTI\\5T26_HaineSam_Projet_Code\\ProjetSamHaine2026\\ProjetSamHaine2026.csproj",
         "packagesPath": "C:\\Users\\230592\\.nuget\\packages\\",
-        "outputPath": "H:\\Informatique5TTI\\C#\\Projet\\ProjetSamHaine2026\\obj\\",
+        "outputPath": "H:\\Informatique5TTI\\5T26_HaineSam_Projet_Code\\ProjetSamHaine2026\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\SOFT\\Microsoft Visual Studio\\Shared\\NuGetPackages"

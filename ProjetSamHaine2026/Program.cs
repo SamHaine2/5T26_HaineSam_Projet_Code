@@ -1,11 +1,15 @@
-﻿namespace ProjetSamHaine2026
+﻿using System.ComponentModel.Design;
+
+namespace ProjetSamHaine2026
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int taille, iniCellule, coord1, coord2;
+            int taille, coord1x, coord1y, coord2x, coord2y, coord3x, coord3y, coord4x, coord4y,coord5x, coord5y;
             string continuer, reco;
+            taille = 0; coord1x = 0; coord1y = 0; coord2x = 0; coord2y = 0; coord3x = 0; coord3y = 0; coord4x = 0; coord4y = 0; coord5x = 0; coord5y = 0;
+
             do
             {
                 LireEntier("Quelle taille voulez vous(1-- 10x10  2-- 25x25 3-- 50x50", out taille);
@@ -13,12 +17,113 @@
             CreationDeLaMatrice(taille, out int[,] t);
             do
             {
-                LireEntier("Combien de cellules initiales voulez vous ?", out iniCellule);
                 Console.Clear();
-                LireEntier("Entrez la ligne (x) de votre cellule (..;):", out coord1);
-                Console.Clear();
-                LireEntier("Entrez la colonne (y) de votre cellule (" + coord1 + ";..) :", out coord2);
-                InitialiserMatrice(taille, t, iniCellule, coord1, coord2);
+                if (taille == 1)
+                {
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord1x);
+                        afficherMatrice(taille, t);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord1x + ";..) (entrer 99 si vous ne voulez pas initialiser cette celulle:", out coord1y);
+                    } while (coord1x < 0 || coord1y < 0 );
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord2x);
+                        afficherMatrice(taille, t);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord2x + ";..) :", out coord2y);
+                    } while (coord2x < 0|| coord2y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord3x);
+                        afficherMatrice(taille, t);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord3x + ";..) :", out coord3y);
+                    } while (coord3x < 0 || coord3y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord4x);
+                        afficherMatrice(taille, t);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord4x + ";..) :", out coord4y);
+                    } while (coord4x < 0 || coord4y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord5x);
+                        afficherMatrice(taille, t);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord5x + ";..) :", out coord5y);
+                    } while (coord5x < 0 || coord5y < 0);
+                }
+                else if (taille == 2)
+                {
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord1x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord1x + ";..) (entrer 99 si vous ne voulez pas initialiser cette celulle:", out coord1y);
+                    } while (coord1x < 0|| coord1y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord2x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord2x + ";..) :", out coord2y);
+                    } while (coord2x < 0 || coord2y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord3x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord3x + ";..) :", out coord3y);
+                    } while (coord3x < 0 || coord3y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord4x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord4x + ";..) :", out coord4y);
+                    } while (coord4x < 0 || coord4y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord5x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord5x + ";..) :", out coord5y);
+                    } while (coord5x < 0 || coord5y < 0);
+
+                }
+                else if (taille == 3)
+                {
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord1x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord1x + ";..) (entrer 99 si vous ne voulez pas initialiser cette celulle:", out coord1y);
+                    } while (coord1x < 0 || coord1y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord2x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord2x + ";..) :", out coord2y);
+                    } while (coord2x < 0 || coord2y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord3x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord3x + ";..) :", out coord3y);
+                    } while (coord3x < 0 || coord3y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord4x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord4x + ";..) :", out coord4y);
+                    } while (coord4x < 0 || coord4y < 0);
+                    do
+                    {
+                        LireEntier("Entrez la ligne (x) de votre cellule (..;) (entrer 99 si vous ne voulez pas initaliser cette celulle:", out coord5x);
+                        Console.Clear();
+                        LireEntier("Entrez la colonne (y) de votre cellule (" + coord5x + ";..) :", out coord5y);
+                    } while (coord5x < 0 || coord5y < 0);
+                }
+                InitialiserMatrice(taille, t, coord1x, coord1y, coord2x, coord2y, coord3x, coord3y, coord4x, coord4y, coord5x, coord5y);
 
                 Console.WriteLine("Veux-tu recommencer ? (o/n)");
                 reco = Console.ReadLine();
@@ -65,19 +170,41 @@
         }
 
 
-        static void InitialiserMatrice(int taille, int[,] t, int nombreInit, int coord1, int coord2)
+        static void InitialiserMatrice(int taille, int[,] t,int coord1x,int coord1y, int coord2x,int coord2y,int coord3x,int coord3y,int coord4x,int coord4y,int coord5x,int coord5y)
         {
             int dimension = t.GetLength(0);
-            // Utiliser directement les coordonnées fournies (coord1 = ligne x, coord2 = colonne y)
-            if (coord1 < 1 || coord1 > dimension || coord2 < 1 || coord2 > dimension)
+
+            // Réinitialiser la matrice à 0
+            for (int i = 0; i < dimension; i++)
             {
-                Console.WriteLine("Coordonnées hors limites, aucune cellule initiale n'est définie.");
-                return;
+                for (int j = 0; j < dimension; j++)
+                {
+                    t[i, j] = 0;
+                }
             }
 
-            t[coord1 - 1, coord2 - 1] = 1;
+            if (coord1x != 99 && coord1y != 99)
+            {
+                t[coord1x , coord1y ] = 1;
+            }
+            if (coord2x != 99 && coord1y != 99)
+            {
+                t[coord2x, coord2y ] = 1;
+            }
+            if (coord3x != 99 && coord3y != 99)
+            {
+                t[coord3x, coord3y] = 1;
+            }
+            if (coord4x != 99 && coord4y != 99)
+            {
+                t[coord4x, coord4y] = 1;
+            }
+            if (coord5x != 99 && coord5y != 99)
+            {
+                t[coord5x, coord5y] = 1;
+            }
         }
-
+        
 
         static void afficherMatrice(int taille, int[,] t)
         {

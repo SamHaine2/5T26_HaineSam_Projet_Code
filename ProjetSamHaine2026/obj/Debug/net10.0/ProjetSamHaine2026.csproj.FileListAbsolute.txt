@@ -41,3 +41,17 @@ C:\Users\123\Documents\ECOLE\Informatique 5eme\C#\PROJET\5T26_HaineSam_Projet_Co
 C:\Users\123\Documents\ECOLE\Informatique 5eme\C#\PROJET\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.pdb
 C:\Users\123\Documents\ECOLE\Informatique 5eme\C#\PROJET\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.genruntimeconfig.cache
 C:\Users\123\Documents\ECOLE\Informatique 5eme\C#\PROJET\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ref\ProjetSamHaine2026.dll
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.exe
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.deps.json
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.runtimeconfig.json
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.dll
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\bin\Debug\net10.0\ProjetSamHaine2026.pdb
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.AssemblyInfoInputs.cache
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.AssemblyInfo.cs
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.csproj.CoreCompileInputs.cache
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.dll
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\refint\ProjetSamHaine2026.dll
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.pdb
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ProjetSamHaine2026.genruntimeconfig.cache
+C:\Users\123\Downloads\5T26_HaineSam_Projet_Code-main\ProjetSamHaine2026\obj\Debug\net10.0\ref\ProjetSamHaine2026.dll
